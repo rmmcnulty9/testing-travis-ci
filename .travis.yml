@@ -1,15 +1,20 @@
 language: generic
-
+branches:
+  only:
+    - master
+    - staging
+    - production
 sudo: required
-
 services:
   - docker
 
 env:
-  - TARGET=a
-  - TARGET=b
-  - TARGET=c
-  - TARGET=d
-
+  global:
+    - secure: RsAc/wZZr9sIOTB8ARiQSYvF2JNamyZlli2pK/hhJXBH09GowAt9uaEEYI/Eqpvbs16tgHrgeMJ6/NsafQsNMps7HeSK+FAz9osV5g8KurNv7YivqoJP8dXgrtp/VCqiUDeyTeWu8zuLsap7qjYukTCxvNFG/a8HJr+S8vVDoBkCNQVDW6+g1eX0WW3eBCCzP7/AQV8jBR8FSjKWSa4khfOFZ5gF7bCBJaXEoXWSdZjfi8957nbyLz89QSA9X7Vrq8G9y3nsbTMehzYjdHh+dMFLb/NsB5VPw+6Tcy8+SE3D53pXaBIDptTG4PtXDpQD3aRKX9snNBSU8GIiyivx69ctz7L83BOmIwYhsUAF/tBhk4D9Rf1tDKmZ2nXKCu+7HutI39RqcQ23RylwB7RYu6ZinNO22Uzt++O8Dk73kM8iw6DFOU1AFhIbi7bLnydJLUIHY6MHqN0Wxds/sNgc8gwN68X/CG7pIlL4o4Lg0VgrgwvYAj7Otryl1SN28kd3W3rOJM+p5WIvbLXavO56ijlSrSyWCnXeMfgD3GUE9z9PYnFci+VpR3bJ+HLJMHcj8KNCo4gQRYKZZijTZECVqYZ98Tp27r1Pqy9vh3Bgsavotbcid1kW+bWm772M7xUX7qWubfskN76K0Wm6SDE9ng+JPKirZ19inrMsYES0WfY=
+  matrix:
+    - TARGET=a ANOTHER=hello
+    - TARGET=b ANOTHER=hello
+    - TARGET=c ANOTHER=hello
+    - TARGET=d
 script:
   - bash build.sh $TARGET

@@ -2,6 +2,9 @@
 
 TARGET="$1"
 
+echo "Way to secret for you: $MY_SECRET_ENV"
+exit 0
+
 echo "Building docker image: $TARGET"
 docker build -t "$TARGET" .
 
@@ -14,10 +17,18 @@ docker exec my_container bash -c "sleep 20s"
 
 docker stop my_container
 
-if [ "$TARGET" == "b" ]; then
-
-    echo "You can't be build b!"
-    exit 1
+if [ -z "$ANOTHER" ]; then
+    echo "ANOTHER env var is missing. Skipping that bit..."
+else
+    echo "ANOTHER env var is set to: $ANOTHER"
+    echo "Hooray!"
 fi
+
+
+# if [ "$TARGET" == "c" ]; then
+
+#     echo "You can't be build c!"
+#     exit 1
+# fi
 
 exit 0
