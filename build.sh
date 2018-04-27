@@ -14,9 +14,9 @@ docker exec my_container bash -c "sleep 20s"
 
 docker stop my_container
 
-if [ "$TARGET" == "b" ]; then
+if [ "$TARGET" == "c" ]; then
 
-    echo "You can't be build b!"
+    echo "You can't be build c!"
     exit 1
 fi
 
