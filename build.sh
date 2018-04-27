@@ -2,6 +2,9 @@
 
 TARGET="$1"
 
+echo "Way to secret for you: $MY_SECRET_ENV"
+exit 0
+
 echo "Building docker image: $TARGET"
 docker build -t "$TARGET" .
 
@@ -20,6 +23,7 @@ else
     echo "ANOTHER env var is set to: $ANOTHER"
     echo "Hooray!"
 fi
+
 
 # if [ "$TARGET" == "c" ]; then
 
