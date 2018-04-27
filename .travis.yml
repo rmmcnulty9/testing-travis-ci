@@ -1,0 +1,15 @@
+language: generic
+
+sudo: required
+
+services:
+  - docker
+
+env:
+  - TARGET=a
+  - TARGET=b
+  - TARGET=c
+  - TARGET=d
+
+script:
+  - bash build.sh $TARGET
