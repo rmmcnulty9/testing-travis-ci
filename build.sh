@@ -14,6 +14,13 @@ docker exec my_container bash -c "sleep 20s"
 
 docker stop my_container
 
+if [ -z "$ANOTHER" ]; then
+    echo "ANOTHER env var is missing. Skipping that bit..."
+else
+    echo "ANOTHER env var is set to: $ANOTHER"
+    echo "Hooray!"
+fi
+
 # if [ "$TARGET" == "c" ]; then
 
 #     echo "You can't be build c!"

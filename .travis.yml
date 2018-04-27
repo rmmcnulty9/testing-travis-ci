@@ -12,9 +12,9 @@ services:
   - docker
 
 env:
-  - TARGET=a
-  - TARGET=b
-  - TARGET=c
+  - TARGET=a ANOTHER=hello
+  - TARGET=b ANOTHER=hello
+  - TARGET=c ANOTHER=hello
   - TARGET=d
 
 script:
