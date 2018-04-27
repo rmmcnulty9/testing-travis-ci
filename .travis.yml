@@ -1,5 +1,11 @@
 language: generic
 
+branches:
+  only:
+    - master
+    - staging
+    - production
+
 sudo: required
 
 services:
